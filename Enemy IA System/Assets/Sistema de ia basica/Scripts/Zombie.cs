@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Zombie : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        Debug.Log("si se ejecuta");
+        if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("si se pudo");
         }
     }
 }

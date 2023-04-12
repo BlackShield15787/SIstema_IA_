@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
     public float jumpForce;
 
     public TextMeshProUGUI countText;
-    private int count = 0;
-    private int dead = 0;
     public GameObject WinText;
 
     
@@ -48,7 +46,7 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        Vector3 movement = Vector3.zero;
+        Vector3 movement;
 
         if (Input.GetKey(KeyCode.LeftShift) && (moveX != 0 || moveZ != 0))
         {
@@ -110,22 +108,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-
-
-        if (other.gameObject.CompareTag("punto"))
-        {
-            count++;
-            
-            other.gameObject.SetActive(false);
-            if (count == 113)
-            {
-                WinText.SetActive(true);
-            }
-        }
-
-    }
 
 }
 
